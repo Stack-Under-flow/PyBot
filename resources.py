@@ -13,4 +13,18 @@ def get_dictionary():
             for line in resource_file:
                 urls.append(line.strip())
             resources[resource_title] = urls    
-    return(resources)           
+    return(resources)
+
+
+def search_dictionary(search_term):
+    #Searches through dictionary for the command passed to it
+    #Returns (Keyword, related Urls)
+    workingDictionary = get_dictionary()
+    for name, links in workingDictionary.items():
+        linkString = ""
+        if name == search_term:
+            for i in range(len(links)):
+                linkString += (links[i] + "\n")
+                final = name + " Resources:\n" + linkString
+            return(final)
+
