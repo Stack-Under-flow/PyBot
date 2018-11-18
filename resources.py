@@ -26,5 +26,7 @@ def search_dictionary(search_term):
             for i in range(len(links)):
                 linkString += (links[i] + "\n")
                 final = name + " Resources:\n" + linkString
+    #Returns fully formated for printing to discord
             return(final)
+
 
