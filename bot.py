@@ -31,7 +31,7 @@ class MyClient(discord.Client):
             return
 
         if message.content.startswith('!hello'):
-            await client.send_message(message.channel, content = 'Hello! {0.author.mention}' .format(message))
+            await client.send_message(message.channel, content = (f'Hello! {message.author.mention}')
 
 client = MyClient()
 client.run(TOKEN)
