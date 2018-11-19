@@ -17,21 +17,31 @@ from discord.ext import commands
 # except FileNotFoundError:
 #     pass
 
-class MyClient(discord.Client):
-    async def on_ready(self):
-        print('Logged in as: ')
-        print(self.user.name)
-        print(self.user.id)
-        print('------')
-
-    # If a user types !hello the bot will respond with 'Hello! (nameOfUser here)'
+class Bot(commands.Bot):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+ 
     async def on_message(self, message):
-
-        if message.author == self.user:
+        if message.author.bot or message.author == self.user:
             return
+        
+        await self.process_commands(message)
 
-        if message.content.startswith('!hello'):
-            await client.send_message(message.channel, content = (f'Hello! {message.author.mention}')
+bot = Bot(command_prefix='!')
 
-client = MyClient()
-client.run(TOKEN)
+@bot.event
+async def on_ready():
+    print('Logged in as: ')
+    print(bot.user.name)
+    print(bot.user.id)
+    print('------')
+    
+@bot.command()
+async def hello(ctx):
+    """
+    If a user types !hello the bot will respond with 'Hello! (nameOfUser here)
+    """
+    await ctx.send(f"Hello! {ctx.author.mention}")
+
+bot.run(TOKEN)
+
