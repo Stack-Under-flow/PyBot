@@ -2,3 +2,7 @@ https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-087-pr
 https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-088-introduction-to-c-memory-management-and-c-object-oriented-programming-january-iap-2010/
 http://learn-c.org/
 https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-088-introduction-to-c-memory-management-and-c-object-oriented-programming-january-iap-2010/
+https://www.sololearn.com/Play/C
+https://www.tutorialspoint.com/cprogramming/
+https://devdocs.io/c/
+https://learncodethehardway.org/c/
