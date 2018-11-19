@@ -1,1 +1,5 @@
 https://azeria-labs.com/writing-arm-assembly-part-1/
+https://www.tutorialspoint.com/assembly_programming/index.htm
+https://www.youtube.com/watch?v=75gBFiFtAb8&t=165s
+http://www.cs.virginia.edu/~evans/cs216/guides/x86.html
+https://docs.oracle.com/cd/E19253-01/817-5477/817-5477.pdf
