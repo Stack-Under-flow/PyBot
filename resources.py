@@ -1,5 +1,7 @@
 import re
 import json
+import shutil
+import os
 
 
 
@@ -21,6 +23,7 @@ class Resources(object):
             self.resources = json.loads(resource_file.read())
         
     def save_file(self):
+        shutil.copyfile("resources.json", "resources_backup.json")
         with open('resources.json', 'w') as outfile:
             json.dump(self.resources, outfile)
 
@@ -48,44 +51,11 @@ class Resources(object):
         self.save_file()
         return True
 
-    # def restore(self, target):
-    #     """Restores {target} with its backup."""
-    #     with open(f'Backups/{target}_backup.txt') as backup_file:
-    #         with open(f'Resources/{target}.txt', 'w') as target_file:
-    #             target_file.write(backup_file.read())
-                
-    #     self.refresh()
+    def restore(self):
+        """ Restore database with its backup """
+        os.remove("resources.json")
+        shutil.move("resources_backup.json", "resources.json")
+        self.load_file()
 
     def get_urls(self, target):
         return self.resources.get(target.lower(), [])
-
-def get_dictionary():
-#returns a dict containing resource information
-#{'resource_title': [urls]}
-    resources = {}
-    filenames = listdir(path='Resources')
-    for filename in filenames:        
-        #take first half of filename split at file descriptor        
-        resource_title = filename.split('.')[0]
-        urls = []
-        with open(f'Resources/{filename}', 'r') as resource_file:
-            for line in resource_file:
-                urls.append(line.strip())
-            resources[resource_title] = urls    
-    return(resources)
-
-
-def search_dictionary(search_term):
-    #Searches through dictionary for the command passed to it
-    #Returns (Keyword, related Urls)
-    workingDictionary = get_dictionary()
-    for name, links in workingDictionary.items():
-        linkString = ""
-        if name == search_term:
-            for i in range(len(links)):
-                linkString += (links[i] + "\n")
-                final = name + " Resources:\n" + linkString
-    #Returns fully formated for printing to discord
-            return(final)
-
-
