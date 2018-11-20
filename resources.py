@@ -1,7 +1,7 @@
 import re
 import json
 import shutil
-import os
+import os # used for deleting json when restoring from backup
 
 
 
@@ -23,11 +23,11 @@ class Resources(object):
             self.resources = json.loads(resource_file.read())
         
     def save_file(self):
-        shutil.copyfile("resources.json", "resources_backup.json")
+        self.backup()
         with open('resources.json', 'w') as outfile:
             json.dump(self.resources, outfile)
 
-    def add_url(self, target, url) -> bool:
+    def add_url(self, target:str, url:str) -> bool:
         """Adds {url} to existing {target} file.
         Creates a backup of {target} in Backups directory.
         Raises FileNotFoundError if {target} does not point to an existing file.
@@ -51,11 +51,18 @@ class Resources(object):
         self.save_file()
         return True
 
-    def restore(self):
+    def backup(self) -> None:
+        shutil.copyfile("resources.json", "resources_backup.json")
+
+    def restore(self) -> None:
         """ Restore database with its backup """
         os.remove("resources.json")
         shutil.move("resources_backup.json", "resources.json")
         self.load_file()
 
-    def get_urls(self, target):
+    def get_urls(self, target: str) -> [str]:
         return self.resources.get(target.lower(), [])
+
+    def get_keys(self) -> [str]:
+        """ Returns a list of all the keys (representing topics) """
+        return [k.capitalize() for k in self.resources.keys()]
