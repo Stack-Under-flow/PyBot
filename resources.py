@@ -1,10 +1,12 @@
 from os import listdir
+import re
 
 
 class Resources(object):
     """Provides tools for using resources in Resources directory"""
     
-    __slots__ = ('dictionary')    
+    __slots__ = ('dictionary')
+    url_pattern = re.compile("^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$")
 
     def __init__(self):
         """Calls self.refresh to make self.dictionary available."""
@@ -32,6 +34,10 @@ class Resources(object):
         Creates a backup of {target} in Backups directory.
         Raises FileNotFoundError if {target} does not point to an existing file.
         """
+        # does not add malformed URLs
+        if not re.search(Resources.url_pattern, url):
+            return
+
         with open(f'Resources/{target}.txt', 'r+') as target_file:
             original_file = target_file.read() #read takes us to EOF
             target_file.write(f'{url}\n') #appends
