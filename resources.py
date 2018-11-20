@@ -24,14 +24,15 @@ class Resources(object):
         with open('resources.json', 'w') as outfile:
             json.dump(self.resources, outfile)
 
-    def add_url(self, target, url):
+    def add_url(self, target, url) -> bool:
         """Adds {url} to existing {target} file.
         Creates a backup of {target} in Backups directory.
         Raises FileNotFoundError if {target} does not point to an existing file.
         """
+        target = target.lower()
         # does not add malformed URLs
         if not re.search(Resources.url_pattern, url):
-            return
+            return False
 
         # trying to add a url for a target that does not exist - creates empty
         if target not in self.resources:
@@ -39,12 +40,13 @@ class Resources(object):
 
         # does not add direct duplicates
         if url in self.resources[target]:
-            return
+            return False
 
 
         self.resources[target].append(url)
 
         self.save_file()
+        return True
 
     # def restore(self, target):
     #     """Restores {target} with its backup."""
@@ -55,7 +57,7 @@ class Resources(object):
     #     self.refresh()
 
     def get_urls(self, target):
-        return self.resources.get(target, [])
+        return self.resources.get(target.lower(), [])
 
 def get_dictionary():
 #returns a dict containing resource information
