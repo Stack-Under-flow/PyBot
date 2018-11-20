@@ -1,33 +1,28 @@
-from os import listdir
 import re
+import json
+
 
 
 class Resources(object):
     """Provides tools for using resources in Resources directory"""
     
-    __slots__ = ('dictionary')
     url_pattern = re.compile("^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$")
 
     def __init__(self):
         """Calls self.refresh to make self.dictionary available."""
-        self.refresh()
+        self.resources = {}
+        self.load_file()
 
-    def refresh(self):
+    def load_file(self):
         """Sets self.dictionary to current resource information
         {'resource_title': [urls]}.
-        """    
-        resources = {}
-        filenames = listdir(path='Resources')
-        for filename in filenames:
-            #take first half of filename split at file descriptor
-            resource_title = filename.split('.')[0]
-            urls = []
-            with open(f'Resources/{filename}', 'r') as resource_file:
-                for line in resource_file:
-                    urls.append(line.strip())
-                resources[resource_title] = urls
-        self.dictionary = resources
+        """
+        with open("resources.json", "r") as resource_file:
+            self.resources = json.loads(resource_file.read())
         
+    def save_file(self):
+        with open('resources.json', 'w') as outfile:
+            json.dump(self.resources, outfile)
 
     def add_url(self, target, url):
         """Adds {url} to existing {target} file.
@@ -38,31 +33,29 @@ class Resources(object):
         if not re.search(Resources.url_pattern, url):
             return
 
-        with open(f'Resources/{target}.txt', 'r+') as target_file:
-            original_file = target_file.read() #read takes us to EOF
-            target_file.write(f'{url}\n') #appends
-        with open(f'Backups/{target}_backup.txt', 'w') as backup_file:
-            backup_file.write(original_file)
-            
-        self.refresh()
+        # trying to add a url for a target that does not exist - creates empty
+        if target not in self.resources:
+            self.resources[target] = []
 
-    def create(self, resource_name):
-        """Creates a new .txt file with {resource_name}.
-        Raises "FileExists" error if file exists.
-        """
+        # does not add direct duplicates
+        if url in self.resources[target]:
+            return
 
-        with open(f'Resources/{resource_name}.txt', 'x') as new_resource_file:
-            pass
-        
-        self.refresh()        
 
-    def restore(self, target):
-        """Restores {target} with its backup."""
-        with open(f'Backups/{target}_backup.txt') as backup_file:
-            with open(f'Resources/{target}.txt', 'w') as target_file:
-                target_file.write(backup_file.read())
+        self.resources[target].append(url)
+
+        self.save_file()
+
+    # def restore(self, target):
+    #     """Restores {target} with its backup."""
+    #     with open(f'Backups/{target}_backup.txt') as backup_file:
+    #         with open(f'Resources/{target}.txt', 'w') as target_file:
+    #             target_file.write(backup_file.read())
                 
-        self.refresh()
+    #     self.refresh()
+
+    def get_urls(self, target):
+        return self.resources.get(target, [])
 
 def get_dictionary():
 #returns a dict containing resource information
