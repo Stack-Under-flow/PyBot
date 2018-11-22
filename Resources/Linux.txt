@@ -1,1 +1,4 @@
 https://linuxjourney.com/
+https://ryanstutorials.net/linuxtutorial/
+https://www.tutorialspoint.com/unix/
+https://uit.stanford.edu/service/sharedcomputing/unix

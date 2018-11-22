@@ -1,1 +1,4 @@
 http://www.coursera.org/learn/machine-learning
+https://www.mathworks.com/videos/introduction-to-deep-learning-machine-learning-vs-deep-learning-1489503513018.html
+https://medium.com/machine-learning-for-humans/why-machine-learning-matters-6164faf1df12
+https://en.wikipedia.org/wiki/Machine_learning

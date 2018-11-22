@@ -1,1 +1,5 @@
 https://linuxjourney.com/
+https://www.learnshell.org/
+http://linuxcommand.org/lc3_learning_the_shell.php
+https://www.shellscript.sh/
+https://www.bash.academy/

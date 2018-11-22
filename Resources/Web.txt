@@ -1,1 +1,14 @@
 https://www.theodinproject.com
+https://www.sololearn.com/Course/HTML/
+https://www.sololearn.com/Course/CSS/
+https://www.sololearn.com/Course/jQuery/
+https://www.sololearn.com/Course/PHP/
+https://www.sololearn.com/Course/JavaScript/
+https://www.learn-html.org/
+https://www.tutorialspoint.com/html/index.htm
+https://www.tutorialspoint.com/css/index.htm
+https://www.tutorialspoint.com/javascript/index.htm
+https://www.tutorialspoint.com/php/index.htm
+https://www.tutorialspoint.com/angular4/index.htm
+https://www.tutorialspoint.com/mysql/index.htm
+https://www.learn-php.org/

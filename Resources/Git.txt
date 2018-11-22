@@ -1,1 +1,6 @@
 https://www.youtube.com/playlist?list=PLRqwX-V7Uu6ZF9C0YMKuns9sLDzK6zoiV
+http://rogerdudler.github.io/git-guide/index.html
+https://git-scm.com/doc
+https://git-scm.com/docs/user-manual.html
+https://lab.github.com/
+https://learngitbranching.js.org/

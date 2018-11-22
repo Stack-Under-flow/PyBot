@@ -1,3 +1,12 @@
 http://overthewire.org/wargames/
 https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-858-computer-systems-security-fall-2014/
 https://www.badbinaries.com/
+https://www.offensive-security.com/information-security-training/
+https://www.offensive-security.com/metasploit-unleashed/
+https://www.cybrary.it/course/ethical-hacking/
+https://null-byte.wonderhowto.com/
+https://www.youtube.com/channel/UClcE-kVhqyiHCcjYwcpfj9w
+https://www.youtube.com/playlist?list=PLhixgUqwRTjx2BmNF5-GddyqZcizwLLGP
+https://www.youtube.com/playlist?list=PLhixgUqwRTjxglIswKp9mpkfPNfHkzyeN
+https://www.hacksplaining.com/
+https://www.youtube.com/watch?v=2TofunAI6fU

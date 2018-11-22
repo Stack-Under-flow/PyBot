@@ -1,1 +1,7 @@
 https://developer.android.com/
+https://developer.android.com/docs/
+http://www.uobabylon.edu.iq/eprints/publication_4_13681_1356.pdf
+https://www.tutorialspoint.com/android/index.htm
+https://www.tutorialspoint.com/swift/index.htm
+https://www.tutorialspoint.com/ios/index.htm
+https://www.tutorialspoint.com/kotlin/index.htm
