@@ -31,11 +31,11 @@ print(resources.get_urls("hello!"))
 
 
 # 'script' used to populate json from previous files
-# targets = ["Assembly", "C++", "C", "DiscordPy", "Git", "Hacking", "Java", "Linux", "Machine", "Mobile", "Python", "Shell", "Web"]
-# for t in targets:
-# 	with open(f"Resources/{t}.txt", "r") as file:
-# 		for line in file.readlines():
-# 			resources.add_url(t.lower(), line)
+targets = ["Assembly", "C++", "C", "DiscordPy", "Git", "Hacking", "Java", "Linux", "Machine", "Mobile", "Python", "Shell", "Web"]
+for t in targets:
+	with open(f"Resources/{t}.txt", "r") as file:
+		for line in file.readlines():
+			resources.add_url(t.lower(), line)
 
 
 # print(resources.get_urls("Assembly"))
