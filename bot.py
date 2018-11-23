@@ -4,6 +4,7 @@
 import json
 import discord
 from discord.ext import commands
+from resources import get_dictionary, search_dictionary
 
 # Ignore the following commented out code. Mods are discussing how we will handle hosting and the bot's token.
 
@@ -44,4 +45,3 @@ async def hello(ctx):
     await ctx.send(f"Hello! {ctx.author.mention}")
 
 bot.run(TOKEN)
-
