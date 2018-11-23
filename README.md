@@ -2,7 +2,7 @@
 A Discord Bot built with [discord.py](https://github.com/Rapptz/discord.py/tree/rewrite), Custom for our server, for learning python.
 
 The server can be found here.
-Coder Stuff - (https://discord.gg/FUk4PhW)
+StackUnderFlow - (https://discord.gg/FUk4PhW)
 
 Got a feature request? Request it in the Issues tab.
 
@@ -31,4 +31,4 @@ To find a way to contribute, visit the project tied to this repo. Your guideline
 # Closer
   All help is greatly appreciated and we really hope everybody can learn atleast something from this project. The goal is to allow all interested users to contribute in one way or another. The repo will not be dominated by only a couple contributors while others watch wishing they got a chance as well. We're all here to learn and work together!
   
- **If you have any questions feel free to message iMrBranflake or Nobody in the server.**
+ **If you have any questions feel free to message Ultimus#0001 or Nobody#0001 in the server.**
